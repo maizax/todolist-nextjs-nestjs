@@ -71,7 +71,7 @@ export default function AddItem() {
           <Button error={error} text="Add" />
         </form>
       </div>
-      <ItemsList items={data}></ItemsList>
+      <ItemsList items={data} />
     </div>
   );
 }
