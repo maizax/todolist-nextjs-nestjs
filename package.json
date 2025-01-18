@@ -2,10 +2,13 @@
   "name": "todolist-nextjs-nestjs",
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "(cd be && npm install)",
-    "start":"(cd be && npm start)"
+    "postinstall": "(cd be && npm install) && (cd ../fe && npm install) && (cd .. && npm start)",
+    "start:be": "cd be && npm run start:dev",
+    "start:fe": "cd fe && npm run dev",
+    "start": "concurrently \"npm:start:be\" \"npm:start:fe\""
   },
   "dependencies": {
+    "concurrently": "^9.1.2",
     "postinstall": "^0.7.5"
   }
 }
