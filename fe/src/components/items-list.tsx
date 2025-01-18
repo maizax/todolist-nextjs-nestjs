@@ -2,10 +2,16 @@ import { format } from 'date-fns';
 import { CiEdit } from 'react-icons/ci';
 import { MdDeleteForever } from 'react-icons/md';
 import { Item } from '../models';
+import { deleteItem, editItem } from '../services/item.service';
 
 export default function ItemsList({ items }: { items: Item[] }) {
-  const onEditClick = (id: number) => {
-    console.log(id);
+  const onEditClick = async (item: Item) => {
+    // TODO
+    await editItem(item);
+  };
+
+  const onDeleteClick = async (id: number) => {
+    await deleteItem(id);
   };
 
   return (
@@ -40,9 +46,13 @@ export default function ItemsList({ items }: { items: Item[] }) {
                   <CiEdit
                     size={30}
                     className="cursor-pointer"
-                    onClick={() => onEditClick(item.id)}
+                    onClick={() => onEditClick(item)}
                   />
-                  <MdDeleteForever size={30} className="cursor-pointer" />
+                  <MdDeleteForever
+                    size={30}
+                    className="cursor-pointer"
+                    onClick={() => onDeleteClick(item.id)}
+                  />
                 </td>
               </tr>
             ))

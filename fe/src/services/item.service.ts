@@ -32,23 +32,35 @@ export const addItem = async (
   }
 };
 
-// export const editItem = async (
-//   id: number,
-//   name: string,
-//   priority: boolean,
-// ): Promise<Item> => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/items`, {
-//       method: 'POST',
-//       body: JSON.stringify({ name, priority }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
+export const editItem = async ({ id, name, priority }: Item): Promise<Item> => {
+  try {
+    const response = await fetch(`${BASE_URL}/items/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ name, priority }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-//     return response.json();
-//   } catch (error) {
-//     console.warn(error);
-//     throw error;
-//   }
-// };
+    return response.json();
+  } catch (error) {
+    console.warn(error);
+    throw error;
+  }
+};
+
+export const deleteItem = async (id: number): Promise<Item> => {
+  try {
+    const response = await fetch(`${BASE_URL}/items/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    return response.json();
+  } catch (error) {
+    console.warn(error);
+    throw error;
+  }
+};

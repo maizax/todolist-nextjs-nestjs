@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Item } from '../models';
+import { addItem, getItems } from '../services/item.service';
 import Button from '../shared/components/button';
 import RadioGroup from '../shared/components/radio-group';
-import { addItem, getItems } from '../services/item.service';
 import ItemsList from './items-list';
-import { Item } from '../models';
 
 export default function AddItem() {
   const [data, setData] = useState<Item[]>([]);
@@ -71,7 +71,7 @@ export default function AddItem() {
           <Button error={error} text="Add" />
         </form>
       </div>
-      <ItemsList items={data} />
+      <ItemsList items={data}></ItemsList>
     </div>
   );
 }
