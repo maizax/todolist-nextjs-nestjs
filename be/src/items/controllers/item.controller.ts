@@ -9,12 +9,12 @@ export class ItemController {
   constructor(private itemService: ItemService) {}
 
   @Get()
-  getUsers(): Promise<Item[]> {
+  getItems(): Promise<Item[]> {
     return this.itemService.findItems();
   }
 
   @Post()
-  createUser(@Body() item: ItemDto): void {
+  addItem(@Body() item: ItemDto): void {
     this.itemService.createItem(item);
   }
 }

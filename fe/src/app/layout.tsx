@@ -3,13 +3,8 @@ import './globals.css';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <main
-          className="min-h-screen flex items-center
-                        justify-center bg-gray-100"
-        >
-          {children}
-        </main>
+      <body className="min-h-screen bg-gray-100">
+        <main className="flex justify-center my-10">{children}</main>
       </body>
     </html>
   );

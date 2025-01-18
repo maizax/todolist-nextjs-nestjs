@@ -1,5 +1,5 @@
-import UsersList from '../../components/users-list';
+import ItemsList from '../../components/items-list';
 
 export default function Page() {
-  return <UsersList />;
+  return <ItemsList />;
 }

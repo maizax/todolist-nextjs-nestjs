@@ -1,11 +1,11 @@
-import Login from '../components/add-item';
-import UsersList from '../components/users-list';
+import AddItem from '../components/add-item';
+import ItemsList from '../components/items-list';
 
 export default function Page() {
   return (
     <>
-      <Login />
-      <UsersList />
+      <AddItem />
+      <ItemsList />
     </>
   );
 }

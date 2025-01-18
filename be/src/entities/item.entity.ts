@@ -8,7 +8,7 @@ export class Item {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ default: false })
   priority: boolean;
 
   @Column()
