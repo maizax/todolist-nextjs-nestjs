@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { User } from './entities/user.entity';
-import { UsersModule } from './users/users.module';
+import { Item } from './entities/item.entity';
+import { ItemModule } from './items/item.module';
 
 @Module({
   imports: [
@@ -15,10 +15,10 @@ import { UsersModule } from './users/users.module';
       username: 'root',
       password: '1234',
       database: 'todolist',
-      entities: [User],
+      entities: [Item],
       synchronize: true,
     }),
-    UsersModule,
+    ItemModule,
   ],
   controllers: [AppController],
   providers: [AppService],

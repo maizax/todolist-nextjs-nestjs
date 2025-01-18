@@ -9,7 +9,7 @@ export default function Login() {
     // const todoValue = event.target.todo.value;
     const todoValue = { name: 'yo12', email: event.target.todo.value };
     try {
-      const result = await fetch('http://localhost:3001/users', {
+      const result = await fetch('http://localhost:3001/items', {
         method: 'POST',
         body: JSON.stringify(todoValue),
         headers: {

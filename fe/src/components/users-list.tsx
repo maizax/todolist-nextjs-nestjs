@@ -1,7 +1,7 @@
 import { User } from '../models';
 
 export default async function UsersList() {
-  const data: Response = await fetch('http://localhost:3001/users');
+  const data: Response = await fetch('http://localhost:3001/items');
   const posts: User[] = await data.json();
 
   return (
