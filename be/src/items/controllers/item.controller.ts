@@ -14,7 +14,7 @@ export class ItemController {
   }
 
   @Post()
-  addItem(@Body() item: ItemDto): void {
-    this.itemService.createItem(item);
+  addItem(@Body() item: ItemDto): Promise<Item> {
+    return this.itemService.createItem(item);
   }
 }

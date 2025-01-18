@@ -1,9 +1,6 @@
 import { Item } from '../models';
 
-export default async function ItemsList() {
-  const data: Response = await fetch('http://localhost:3001/items');
-  const items: Item[] = await data.json();
-
+export default function ItemsList({ items }: { items: Item[] }) {
   return (
     <ul>
       {items.map(item => (
