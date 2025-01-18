@@ -4,4 +4,4 @@
 2. Create schema in mysql for `todolist`.
 3. Make sure you have Node.js (version >= 20).
 4. In root folder run `npm install`.
-5. After installation, run `npm start`.
+5. After installation, if necessary - run `npm start`.
