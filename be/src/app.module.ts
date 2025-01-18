@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Item } from './entities/item.entity';
+import { ItemEntity } from './entities/item.entity';
 import { ItemModule } from './items/item.module';
 
 @Module({
@@ -15,7 +14,7 @@ import { ItemModule } from './items/item.module';
       username: 'root',
       password: '1234',
       database: 'todolist',
-      entities: [Item],
+      entities: [ItemEntity],
       synchronize: true,
     }),
     ItemModule,
