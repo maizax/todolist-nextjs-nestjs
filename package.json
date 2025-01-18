@@ -1,0 +1,11 @@
+{
+  "name": "todolist-nextjs-nestjs",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "(cd be && npm install)",
+    "start":"(cd be && npm start)"
+  },
+  "dependencies": {
+    "postinstall": "^0.7.5"
+  }
+}
