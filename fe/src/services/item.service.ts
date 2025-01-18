@@ -34,8 +34,8 @@ export const addItem = async (
 
 // export const editItem = async (
 //   id: number,
-//   name?: string,
-//   priority?: boolean,
+//   name: string,
+//   priority: boolean,
 // ): Promise<Item> => {
 //   try {
 //     const response = await fetch(`${BASE_URL}/items`, {

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { ItemEntity } from '../../entities';
 import { ItemDto } from '../dto';
 
@@ -22,5 +22,32 @@ export class ItemService {
     });
 
     return this.itemRepository.save(newItem);
+  }
+
+  editItem(id: number, item: ItemDto): Promise<UpdateResult> {
+    const existingItem = this.itemRepository.findOneBy({
+      id,
+    });
+    if (!existingItem) {
+      throw Error;
+    }
+
+    const updatedItemResult = this.itemRepository.update(
+      { id },
+      { priority: item.priority, name: item.name },
+    );
+    return updatedItemResult;
+  }
+
+  deleteItem(id: number): Promise<DeleteResult> {
+    const existingItem = this.itemRepository.findOneBy({
+      id,
+    });
+    if (!existingItem) {
+      throw Error;
+    }
+
+    const deletedItem = this.itemRepository.delete({ id });
+    return deletedItem;
   }
 }
