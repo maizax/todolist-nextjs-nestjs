@@ -1,9 +1,11 @@
-import AddItem from '../components/add-item';
+import { AddItem } from '../components/add-item';
+import { getItems } from '../services/item.service';
 
-export default function Page() {
+export default async function Page() {
+  const items = await getItems();
   return (
     <>
-      <AddItem />
+      <AddItem items={items} />
     </>
   );
 }

@@ -1,17 +1,18 @@
 import { format } from 'date-fns';
-import { CiEdit } from 'react-icons/ci';
 import { MdDeleteForever } from 'react-icons/md';
 import { Item } from '../models';
-import { deleteItem, editItem } from '../services/item.service';
+import { deleteItem } from '../services/item.service';
 
-export default function ItemsList({ items }: { items: Item[] }) {
-  const onEditClick = async (item: Item) => {
-    // TODO
-    await editItem(item);
-  };
-
+export const ItemsList = ({
+  items,
+  setItems,
+}: {
+  items: Item[];
+  setItems: (items: Item[]) => void;
+}) => {
   const onDeleteClick = async (id: number) => {
     await deleteItem(id);
+    setItems(items.filter(item => item.id !== id));
   };
 
   return (
@@ -42,12 +43,7 @@ export default function ItemsList({ items }: { items: Item[] }) {
                 <td className="px-6 py-4">
                   {format(item.createdAt, 'LLLL d, yyyy')}
                 </td>
-                <td className="px-6 py-4 flex ">
-                  <CiEdit
-                    size={30}
-                    className="cursor-pointer"
-                    onClick={() => onEditClick(item)}
-                  />
+                <td className="px-6 py-4 flex justify-center">
                   <MdDeleteForever
                     size={30}
                     className="cursor-pointer"
@@ -58,11 +54,13 @@ export default function ItemsList({ items }: { items: Item[] }) {
             ))
           ) : (
             <tr>
-              <th>No results</th>
+              <th colSpan={4} className="text-center pt-3">
+                No results
+              </th>
             </tr>
           )}
         </tbody>
       </table>
     </div>
   );
-}
+};

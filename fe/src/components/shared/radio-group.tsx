@@ -1,4 +1,4 @@
-export default function RadioGroup() {
+export const RadioGroup = () => {
   return (
     <div className="flex items-center gap-5">
       <div className="flex items-center">
@@ -23,4 +23,4 @@ export default function RadioGroup() {
       </div>
     </div>
   );
-}
+};
